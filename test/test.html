@@ -1,0 +1,30 @@
+<html>
+  <body>
+    
+    <span class="">
+    <fieldset name="play" id="play_control">
+       <legend>Play Control:</legend>
+      <button type="botton" value="start">start</button>
+      <button type="botton" value="stop">stop</button>
+    </fieldset>
+
+    <fieldset name="choice" id="anima_choice">
+      <legend>Animation:</legend>
+      <select name="anima_choice">
+	<option select = "selected" onclick="movie('Blank');">Blank</option>
+	<option onclick="movie('Exercise');">Exercise</option>
+	<option onclick="movie('Juggler');">Juggler</option>
+	<option onclick="movie('Bike');">Bike</option>
+	<option onclick="movie('Dive');">Dive</option>
+	<option onclick="movie('Custom');">Custom</option>
+      </select>
+    </fieldset>
+
+    <fieldset name="size" id="size">
+       <legend>Size:</legend>
+      <input type="radio" name="size" value="Small" /> Small
+      <input type="radio" name="size" value="Medium" /> Medium
+      <input type="radio" name="size" value="Large" /> Large
+    </fieldset>
+  </body>
+</html>

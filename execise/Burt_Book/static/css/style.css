@@ -1,0 +1,24 @@
+#container {
+
+    margin:5px;
+    font-size:10pt;
+    padding:5px;
+}
+
+#main {
+    
+}
+
+#content {
+    
+}
+.book {
+    margin:auto;
+    background-color:#F5F5F5;
+    width:500px;
+}
+
+.book_image{
+
+    float:left;
+}

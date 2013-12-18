@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ info.title }} - Rancid Tomatoes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="{{ static_url("css/movie.css") }}" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Top begins -->
+    <div class="top">
+      <img src="{{ static_url("img/banner.png") }}" alt="Rancid Tomatoes" />
+    </div>
+
+    <h1>{{ info.title }} ({{ info.year }})</h1>
+    <!-- Top ends -->
+
+    <!-- Containers begins -->
+    <div class="container">
+      <!-- info begins -->
+      <div class="info">
+	{% set movieImg = "moviesfiles/" + info.dirname + "/generaloverview.png" %}
+	<img src="{{ static_url(movieImg) }}" alt="general overview" />
+
+	<dl>
+	  {% for pairs in overview %}
+	  <dt>{% raw pairs[0] %}</dt>
+	  <dd>{% raw pairs[1] %}</dd>
+	  {% end %}
+	</dl>
+      </div>
+      <!-- info ends-->
+      <!-- review_area begins -->
+      <div class="review_area">
+	<div class="overall">
+	  {% if int(info.critic) < 60 %}
+					 <img src="{{ static_url("img/rottenbig.png") }}" alt="Rotten" />
+					 {% else %}
+					 <img src="{{ static_url("img/freshbig.png") }}" alt="Fresh" />
+					 {% end %}
+					 <span class="overall_critic"><span class="critic">
+					     {{ info.critic }}%</span> 
+					   ({{ info.total }} reviews total)</span>
+	</div>
+
+	<div class="left_column">
+	  {% module Reviews(reviews.left) %}
+	</div>
+
+	<div class="right_column">
+	  {% module Reviews(reviews.right) %}
+	</div>
+      </div>
+      <!-- review_area ends -->
+      <p class="bottom">(1-{{ reviews.count }}) of {{ info.total }}</p>
+    </div>
+    <!-- container ends -->
+    <!-- link begins-->
+    <div class="link">
+      <a href="http://validator.w3.org/check/referer">
+	<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/w3c-xhtml.png" 
+	     alt="Valid XHTML 1.1" /></a> <br />
+      <a href="http://jigsaw.w3.org/css-validator/check/referer">
+	<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/w3c-css.png" 
+	     alt="Valid CSS!" /></a>
+    </div>
+    <!--link ends-->
+  </body>
+</html>
